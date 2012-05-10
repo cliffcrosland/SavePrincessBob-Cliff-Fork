@@ -1,4 +1,12 @@
 SavePrincessBob::Application.routes.draw do
+  get "home/index"
+  get "home/flash_game"
+  get "home/the_end"
+
+  resources :games
+
+  resources :characters
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +56,7 @@ SavePrincessBob::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
