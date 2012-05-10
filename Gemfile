@@ -7,6 +7,10 @@ gem 'rails', '3.2.1'
 
 gem 'sqlite3'
 
+#use sqlite3 for local development and fancy postGres for stupid production
+group :production do
+	gem 'pg' 
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
