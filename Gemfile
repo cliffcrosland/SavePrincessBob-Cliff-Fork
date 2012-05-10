@@ -5,9 +5,11 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development do
+	gem 'sqlite3'
+end
 
-#use sqlite3 for local development and fancy postGres for stupid production
+#use sqlite3 for local development and fancy postGres for stupid production (consider using gem 'thin' later)
 group :production do
 	gem 'pg' 
 end
