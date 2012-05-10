@@ -1,14 +1,14 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 <a id="link" href="/home/flash_game/">Play!</a>
-<h1 id="silly_message">Jon is fat.</h1>
+<h1 id="silly_message" style="display: none;">Jon is fat.</h1>
 <script>
 $("#link").hover(
   function () {
     $("#silly_message").show();
   },
   function () {
-    $("silly_message").hide();
+    $("#silly_message").hide();
   }
 );
 </script>
