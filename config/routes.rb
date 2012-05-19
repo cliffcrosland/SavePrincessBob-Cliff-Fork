@@ -1,4 +1,6 @@
 SavePrincessBob::Application.routes.draw do
+  resources :character_images
+
   get "home/index"
   get "home/flash_game"
   get "home/the_end"

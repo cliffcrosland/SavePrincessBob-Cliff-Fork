@@ -1,14 +1,40 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<a id="link" href="/home/flash_game/">Play!</a>
-<h1 id="silly_message" style="display: none;">Jon is fat.</h1>
+<style>
+#game_wrapper {
+	margin: auto;
+	border: solid 1px #aaa;
+	width: 800px;
+	height: 600px;
+}
+</style>
+
+<div id="game_wrapper">
+
+</div>
+
 <script>
-$("#link").hover(
-  function () {
-    $("#silly_message").show();
-  },
-  function () {
-    $("#silly_message").hide();
-  }
-);
+// On load, run the app
+$(function (){
+	// Use Milwaukee frontend framework to initialize FB sdk
+	M.facebook.initializeJsSdk(initializeApp);
+		
+	// Initialize the app.
+	function initializeApp() {
+		// Facebook credentials
+		// If we are in production, use the first credential. If not (we are on localhost), use the second credential.
+		var appId = "<%= Rails.env.production? ? "236427646469921" : "241558389277122"%>",
+	      appSecret = "<%= Rails.env.production? ? "f068c9ba4a276106a6682c08ea358c94" : "fd2fcd30f2fa0d1493b185b2ac6f2769" %>",
+	      redirectUri = "<%= Rails.env.production? ? 'https://apps.facebook.com/save_princess_bob/' : 'http://localhost:3000' %>";
+
+	    // Initialize FB sdk with credentials
+	    FB.init({
+			appId:appId,
+			// Once the user has authorized the sending of a request to a friend once, 
+			// she may do so again without without the auth dialog.
+      		frictionlessRequests:true,
+      		// enable cookies to allow the server to access the session
+      		cookie:true 
+      	});
+	}
+});
+
 </script>

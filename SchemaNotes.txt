@@ -1,0 +1,17 @@
+Schema
+
+Game:
++ creator facebook id
+
+Character:
++ facebook id
++ CharacterImage id
++ Game id
++ Role id
+
+CharacterImage:
+	+ image url:
+	+ transformation:
+		- x, y displacement
+		- rotation
+		- zoom
