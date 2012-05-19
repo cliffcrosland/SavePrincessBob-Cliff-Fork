@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519160053) do
+ActiveRecord::Schema.define(:version => 20120519165243) do
 
   create_table "character_images", :force => true do |t|
     t.string   "image_url"
@@ -25,17 +25,18 @@ ActiveRecord::Schema.define(:version => 20120519160053) do
   end
 
   create_table "characters", :force => true do |t|
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-    t.integer  "character_facebook_id"
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.integer  "character_facebook_id", :limit => 8
     t.integer  "game_id"
     t.string   "role"
+    t.string   "gender",                             :default => "female"
   end
 
   create_table "games", :force => true do |t|
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.integer  "creator_facebook_id"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.integer  "creator_facebook_id", :limit => 8
   end
 
 end
