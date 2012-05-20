@@ -1,3 +1,5 @@
+<!-- =============================== Styling =============================== -->
+
 <style>
 #game_wrapper {
 	margin: auto;
@@ -16,12 +18,21 @@
 }
 </style>
 
+<!-- =============================== HTML =============================== -->
+
 <div id="game_wrapper">
     <img id="loading_spinner_img" src="<%= asset_path 'loading.gif' %>" />
     <div id="flash_game" style="display:none;">
-        Flash game goes here.
+        <object width="750" height="530">
+            <param name="movie" value="SavePrincessBob.swf">
+            <embed src="SavePrincessBob.swf" width="750" height="530">
+            </embed>
+        </object>
     </div>
 </div>
+
+
+<!-- =============================== JavaScript =============================== -->
 
 <script>
 // Global container for app properties. Accessible to the Flash app.
