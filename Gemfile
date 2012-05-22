@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem "eventmachine", ">= 1.0.0.beta.4", "<= 1.0.0.beta.4.1"
 
 # Frontend Toolkit
 gem "milwaukee",  '1.0.0', :git => "http://github.com/trcarden/milwaukee.git", :ref => "f06e4a0d326414eec26daca6d8003f9d6ec7bd23"
@@ -16,6 +17,7 @@ end
 group :production do
 	gem 'pg'
 	gem 'thin'
+	
 end
 
 # Gems used only for assets and not required

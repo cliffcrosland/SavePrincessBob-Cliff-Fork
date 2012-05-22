@@ -47,6 +47,12 @@ SavePrincessBob.app_settings = {
 	redirect_uri : "",
     authResponse : ""
 };
+SavePrincessBob.getFriendsArray = function () {
+	if (SavePrincessBob.friends) {
+		return SavePrincessBob.friends.data;
+	}
+	return null;
+};
 
 // Use Milwaukee frontend framework to initialize FB sdk
 M.facebook.initializeJsSdk(initializeApp);
