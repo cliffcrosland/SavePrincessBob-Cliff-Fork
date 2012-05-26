@@ -25,7 +25,7 @@
     <div id="flash_game" style="display:none;">
         <object width="750" height="530">
             <param name="movie" value="SavePrincessBob.swf">
-            <embed src="SavePrincessBob.swf" width="750" height="530">
+            <embed src="SavePrincessBob.swf" width="750" height="530" AllowScriptAccess="always">
             </embed>
         </object>
     </div>
@@ -45,13 +45,19 @@ SavePrincessBob.app_settings = {
 	app_secret : "",
 	scope : "",
 	redirect_uri : "",
-    authResponse : ""
+  authResponse : ""
 };
 SavePrincessBob.getFriendsArray = function () {
 	if (SavePrincessBob.friends) {
 		return SavePrincessBob.friends.data;
 	}
 	return null;
+};
+SavePrincessBob.getUserFacebookId = function () {
+  return SavePrincessBob.user_profile.id;
+};
+SavePrincessBob.getUserName = function () {
+  return SavePrincessBob.user_profile.name;
 };
 
 // Use Milwaukee frontend framework to initialize FB sdk
@@ -120,6 +126,7 @@ function startGame(login_response) {
 // Install the user
 function startGameForUser(user_profile) {
 	SavePrincessBob.user_profile = user_profile;
+  l(user_profile);
 	FB.api("/me/friends", { access_token : SavePrincessBob.app_settings.authToken }, function (response) {
         // Install friends
         SavePrincessBob.friends = response;
@@ -127,6 +134,7 @@ function startGameForUser(user_profile) {
         showFlashGame();
         l("Friends loaded! Start the game.");
         l(SavePrincessBob);
+        loadFriendImages();
 	});
 }
 
@@ -152,6 +160,11 @@ function showFlashGame() {
     $("#loading_spinner_img").fadeOut(function () {
         $("#flash_game").fadeIn();
     });
+}
+
+// Load the friend images into the DOM.
+function loadFriendImages() {
+
 }
 
 </script>
